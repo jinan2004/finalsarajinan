@@ -11,10 +11,11 @@
 <header>
 <div class="logo"><img src="images/logo.PNG" alt="Logo"/></div>
 <nav><ul>
+<li><a href="Home.aspx">Home</a></li>
 <li><a href="Aboutus.html">About us </a></li>
 <li><a href="Medicaldepartments.html">Medical departments</a></li>
-<li><a href="Specialties.html">Specialties</a></li>
-<li><a href="Login.html">Login</a></li>
+<li><a href="Services and prices.aspx">Services and prices</a></li>
+<li><a href="Health calculators.aspx">Health calculators</a></li>
 <li><select id="language" name="language">
 <option value="AR">Arabic</option>
 <option value="ANG">English</option>
