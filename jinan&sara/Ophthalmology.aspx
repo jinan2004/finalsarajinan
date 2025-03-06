@@ -158,17 +158,37 @@
      <asp:Label ID="Label1" runat="server" Text="Patient's name" CssClass="form-label"></asp:Label>
      <asp:TextBox ID="TextBox1" runat="server" CssClass="form-input"></asp:TextBox>
      <asp:Label ID="Label2" runat="server" Text="Phone number" CssClass="form-label"></asp:Label>
-     <asp:TextBox ID="TextBox2" runat="server" CssClass="form-input"></asp:TextBox>
+     <asp:TextBox ID="TextBox2" runat="server" CssClass="form-input" oninput="validatePhoneNumber(this)"></asp:TextBox>
      <asp:Label ID="Label3" runat="server" Text="Email" CssClass="form-label"></asp:Label>
-     <asp:TextBox ID="TextBox3" runat="server" CssClass="form-input"></asp:TextBox>
+     <asp:TextBox ID="TextBox3" runat="server" CssClass="form-input"  onblur="validateEmail(this)"></asp:TextBox>
      <asp:Label ID="Label4" runat="server" Text="Date of visit" CssClass="form-label"></asp:Label>
-     <asp:TextBox ID="TextBox4" runat="server" CssClass="form-input"></asp:TextBox>
+     <asp:TextBox ID="TextBox4" runat="server" CssClass="form-input" onblur="validateDate(this)"></asp:TextBox>
      <asp:Button ID="Button1" runat="server" Text="Login" CssClass="login-button" OnClick="Button1_Click" /></form></div> 
      <div class="doctor-info">
      <img src="images/dr-ramzi.JPG" alt="" class="doctor-image" />
       <h3>Dr. Ramzi Allam El-Din Ophthalmologist</h3></div></div>
 
+        <script>
+    function validatePhoneNumber(input) {
+        input.value = input.value.replace(/[^0-9]/g, ''); 
+    }
 
+    function validateEmail(input) {
+        var pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!pattern.test(input.value)) {
+            alert("Please enter a valid email!");
+            input.value = "";
+        }
+    }
+
+    function validateDate(input) {
+        var pattern = /^\d{4}-\d{2}-\d{2}$/;
+        if (!pattern.test(input.value)) {
+            alert("Please enter the date in a valid format. (YYYY-MM-DD)!");
+            input.value = "";
+        }
+    }
+</script>
     <h2>Patient registration table</h2>
     <table><thead>
      <tr><th>Patient's name</th><th>Phone number</th><th>Email</th><th>Date of visit</th></tr>
